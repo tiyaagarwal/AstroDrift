@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+#game-wrapper {
+  position: relative;
+}
+
+#gameCanvas {
+  display: block;
+  border: 1px solid #1a3a5c;
+  box-shadow: 0 0 40px #0af2, 0 0 80px #0af1;
+}
+
+/* ── Overlays ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  background: rgba(0, 0, 10, 0.82);
+  backdrop-filter: blur(2px);
+}
+
+.overlay.hidden { display: none; }
+
+.overlay h1 {
+  font-size: 3.2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0af;
+  text-shadow: 0 0 20px #0af8, 0 0 40px #0af4;
+}
+
+.overlay h2 {
+  font-size: 1.8rem;
+  letter-spacing: 0.12em;
+  color: #f80;
+  text-shadow: 0 0 14px #f806;
+}
+
+.overlay p {
+  font-size: 0.95rem;
+  color: #8bc;
+  letter-spacing: 0.08em;
+  text-align: center;
+  max-width: 340px;
+  line-height: 1.7;
+}
+
+.overlay .score-display {
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.btn {
+  margin-top: 8px;
+  padding: 12px 36px;
+  background: transparent;
+  border: 2px solid #0af;
+  color: #0af;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  background: #0af;
+  color: #000;
+  box-shadow: 0 0 20px #0afc;
+}
+
+.controls-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #456;
+  letter-spacing: 0.1em;
+}
+
+/* ── Mobile touch buttons ── */
+#touch-controls {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+#touch-controls button {
+  pointer-events: all;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid #0af6;
+  background: rgba(0, 170, 255, 0.12);
+  color: #0af;
+  font-size: 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#touch-controls button:active {
+  background: rgba(0, 170, 255, 0.35);
+}
+
+.touch-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (pointer: coarse) {
+  #touch-controls { display: flex; }
+}
