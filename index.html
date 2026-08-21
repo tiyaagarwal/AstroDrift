@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AstroDrift</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="game-wrapper">
+  <canvas id="gameCanvas" width="900" height="600"></canvas>
+
+  <!-- Main menu -->
+  <div id="menu-overlay" class="overlay">
+    <h1>AstroDrift</h1>
+    <p>Navigate the asteroid field. Shoot to clear a path.<br>
+       Collect power-ups. Survive as many waves as you can.</p>
+    <button class="btn" id="btn-start">Launch</button>
+    <p style="margin-top:8px; font-size:0.78rem; color:#567">
+      ← → Rotate &nbsp;·&nbsp; ↑ Thrust &nbsp;·&nbsp; Space Fire &nbsp;·&nbsp; P Pause
+    </p>
+  </div>
+
+  <!-- Game HUD (visible during play) -->
+  <div id="game-overlay" class="overlay hidden" style="background:transparent; pointer-events:none;">
+  </div>
+
+  <!-- Game over -->
+  <div id="over-overlay" class="overlay hidden">
+    <h2>Ship Destroyed</h2>
+    <p class="score-display">Score: <span id="over-score">0</span></p>
+    <p class="score-display">Best:&nbsp; <span id="over-best">0</span></p>
+    <button class="btn" id="btn-restart">Try Again</button>
+  </div>
+
+  <!-- Mobile touch controls -->
+  <div id="touch-controls">
+    <div class="touch-row">
+      <button id="btn-left">◀</button>
+      <button id="btn-right">▶</button>
+    </div>
+    <div class="touch-row">
+      <button id="btn-thrust">▲</button>
+      <button id="btn-fire">●</button>
+    </div>
+  </div>
+
+  <div class="controls-hint">AstroDrift · use keyboard or touch controls</div>
+</div>
+
+<script type="module">
+  import { Game } from './js/game.js';
+
+  const canvas = document.getElementById('gameCanvas');
+  const ui = {
+    menu:      document.getElementById('menu-overlay'),
+    game:      document.getElementById('game-overlay'),
+    over:      document.getElementById('over-overlay'),
+    overScore: document.getElementById('over-score'),
+    overBest:  document.getElementById('over-best'),
+  };
+
+  const game = new Game(canvas, ui);
+
+  document.getElementById('btn-start').addEventListener('click', () => game.startGame());
+  document.getElementById('btn-restart').addEventListener('click', () => {
+    ui.over.classList.add('hidden');
+    game.startGame();
+  });
+</script>
+</body>
+</html>
