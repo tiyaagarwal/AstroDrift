@@ -1,5 +1,7 @@
 # AstroDrift 🚀
 
+**[Play it live →](https://tiyaagarwal.github.io/AstroDrift/)**
+
 A browser-based space shooter built with vanilla JavaScript and the Canvas API. No dependencies, no build step — open `index.html` and play.
 
 ## Gameplay
