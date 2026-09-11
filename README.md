@@ -35,7 +35,7 @@ Navigate a lone spacecraft through an ever-denser asteroid field. Shoot rocks ap
 ## Project Structure
 
 ```
-game-space-explorer/
+AstroDrift/
 ├── index.html          entry point and UI overlays
 ├── css/
 │   └── style.css       layout, overlays, buttons, touch controls
