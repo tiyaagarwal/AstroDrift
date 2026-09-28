@@ -199,14 +199,10 @@ export class Game {
   // ── Input ──────────────────────────────────────────────────────────────
 
   _bindInput() {
-    const keys = new Set();
-
     window.addEventListener('keydown', e => {
-      keys.add(e.code);
       this._handleKey(e.code, true);
     });
     window.addEventListener('keyup', e => {
-      keys.delete(e.code);
       this._handleKey(e.code, false);
     });
 
