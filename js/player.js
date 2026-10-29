@@ -67,7 +67,7 @@ export class Player {
     this.x = wrap(this.x + this.vx, 0, this.W);
     this.y = wrap(this.y + this.vy, 0, this.H);
 
-    const cd = this.rapidFire ? SHOOT_CD * 0.35 : SHOOT_CD;
+    const cd = this.rapidFire ? SHOOT_CD / 3 : SHOOT_CD;
     if (this.shooting && Date.now() - this.lastShot > cd) {
       this.lastShot = Date.now();
       this.bullets.push({
